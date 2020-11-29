@@ -7,7 +7,7 @@ struct node{
 	node* next;
 	
 	node(int n){
-		data=n;
+		data = n;
 	}
 	
 };
@@ -17,18 +17,18 @@ node* tmp;
 
 void enqueue(int a1){
 	
-   	node* nn=new node(a1);
-   if(front==NULL){
+   	node* nn = new node(a1);
+   if(front == NULL){
    	
-	front=nn;
-	rear=nn;
-	nn->next=NULL;
+	front = nn;
+	rear = nn;
+	nn->next = NULL;
 		
    } 
    else{
-		rear->next=nn;
-		rear=nn;
-		rear->next=NULL;
+		rear->next = nn;
+		rear = nn;
+		rear->next = NULL;
    }
 }
 
@@ -40,29 +40,29 @@ void dequeue(){
     }
     else{
     	node* 
-		tmp=front;
-    	front=tmp->next;
+		tmp = front;
+    	front = tmp->next;
     	delete(tmp);
-    	cout<<"First node has being deleted.\n";
+    	cout << "First node has being deleted.\n";
 	}
 	
 }
 
 
 void display(){
-   node* tmp=front;
-   if((front==NULL) && (rear==NULL)){
+   node* tmp = front;
+   if((front == NULL) && (rear == NULL)){
    	
-      cout<<"Queue is empty"<<endl;
+      cout << "Queue is empty" << endl;
       
    }
    else{
    
-   cout<<"Queue elements are:";
+   cout << "Queue elements are:";
    
-   while(tmp!=NULL) {
-      cout<<tmp->data<<" ";
-      tmp=tmp->next;
+   while(tmp != NULL) {
+      cout << tmp->data << " ";
+      tmp = tmp->next;
    }
 }
  
@@ -70,44 +70,50 @@ void display(){
 
 int main() {
    int ch;
-   cout<<"1) Insert element to queue"<<endl;
-   cout<<"2) Delete element from queue"<<endl;
-   cout<<"3) Display all the elements of queue"<<endl;
-   cout<<"4) Exit"<<endl;
+   cout << "1: Insert element to queue\n";
+   cout << "2: Delete element from queue\n";
+   cout << "3: Display all the elements of queue\n";
+   cout << "4: Exit\n";
    
    while(true){
    
-      cout<<"\nEnter your choice : "<<endl;
-      cin>>ch;
+      cout << "\nEnter your choice : " << endl;
+      cin >> ch;
       
       switch(ch){
       	
          case 1:
+		      
          	int a;
-		 		cout<<"enter a number:"<<endl;
-				cin>>a; 
-		 		enqueue(a);
-                cout<<" ";
+		cout << "enter a number:\n";
+		cin >> a;
+		      
+		enqueue(a);
+                cout << " ";
+		      
                 display();
-         		break;
+         	break;
          	
          case 2: 
-		 		dequeue();
-                cout<<" ";
+		      
+		dequeue();
+                cout << " ";
                 display();
-         		break;
+         	break;
          	
          case 3: 
-		 		display();
-         		break;
+		      
+		display();
+         	break;
          		
          case 4: 	
-		 		exit(0);
-         		break;
+		exit(0);
+         	break;
          		
          default: 
-		 		cout<<"Invalid choice"<<endl;
+		cout << "Invalid choice\n";
       }
    } 
+	
     return 0;
 }
